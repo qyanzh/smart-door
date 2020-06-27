@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="ajax方式">
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script type="text/javascript" src="../js/login.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>login</title>
+    
+</head>
+ 
+<body>
+
+    <div id="flexlayout"> 
+        <div id="titleDiv">
+            <h1 style="text-align: center;vertical-align: middle;color:
+            aliceblue;font-size: 50px;letter-spacing: 1em;height: 100px;">欢迎使用</h1>
+            <h1 style="text-align: center;vertical-align: middle;color:
+            aliceblue;font-size: 35px;letter-spacing: 1em;">智能门禁管理系统</h1>
+        </div>
+        
+        <div id="loginDiv">
+            <form method="post" onsubmit="return false" action="##" id="lfsubmit">
+                <h1 style="text-align: center;color: aliceblue;">LOGIN  IN</h1>
+                <p>UserName:<input id="userNname" type="text" name="username"></p>
+                <p>PassWord:  <input id="password" type="password" name="password"></p>
+    
+                <div style="text-align: center;margin-top: 30px;">
+                    <input  type="button" class="button" value="login up" onclick="loginup()">
+                    <input type="reset" class="button" value="reset">
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

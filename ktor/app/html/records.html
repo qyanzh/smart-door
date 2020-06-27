@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="description" content="ajax方式">
+
+    <title>签到记录</title>
+    <!--<script type="text/javascript" src="../js/register.js"></script>-->
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/records.css" />
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+    <script type="text/javascript" src="../js/dividePage.js"></script>
+
+
+
+</head>
+
+<body>
+    <h1 style="text-align: center;vertical-align: middle;color: aliceblue;
+        font-size: 30px;letter-spacing: 0.7em;height: 40px;">签到信息表</h1>
+
+
+
+    <table valign="middle" class="table table-bordered" id='mytable'
+        style="width: 70%;background: rgba(255, 255, 255, 0.2); ">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>签到时间</th>
+            <th>体温</th>
+            <th>照片</th>
+        </tr>
+
+    </table>
+    <div style="text-align: center;">
+        <a id="btn0" style="color:white"></a>
+        <input id="pageSize" type="text" size="1" maxlength="2" value="getDefaultValue()" hidden />
+        <a style="color:white"></a>
+        <a href="#" id="pageSizeSet" class="button" hidden>设置</a>
+        <a id="sjzl" style="color:white"></a>
+        <!--显示总数据条数 -->
+        <a href="#" id="btn1" class="button">首页</a>
+        <a href="#" id="btn2" class="button">上一页</a>
+        <a href="#" id="btn3" class="button">下一页</a>
+        <a href="#" id="btn4" class="button">尾页</a>
+        <a style="color:white">转到 </a>
+        <input id="changePage" type="text" size="1" maxlength="4" />
+        <a style="color:white">页 </a>
+        <a href="#" id="btn5" class="button">跳转</a>
+    </div>
+    <div style="text-align: center;margin-top: 40px;">
+        <input type="button" class="button_1" value="人脸录入查询" onclick="jump_1()">
+        <input type="button" class="button_1" value="返回人脸录入" style="margin-left:30px" onclick="jump_2()">
+
+    </div>
+
+    <script>
+        $(function () {
+            var userToken = window.localStorage.getItem("mytoken");
+            $.ajax({
+                type: "GET",
+                url: "http://122.112.159.211/api/records",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + userToken);
+                },
+                // data:{
+                //     lasttTime:Date.now()
+                // },
+                dataType: "json",
+                //cache:false,
+                success: function (data) {
+
+                    console.log(data);
+                    console.log(data.length);
+                    console.log(data[1]);
+                    for (i = 0; i < data.length; i += 1) //data.data指的是数组，数组里是8个对象，i为数组的索引
+                    {
+                        var tr = "";
+                        var timestamp4 = new Date(data[i].time);
+                        tr = '<td>' + data[i].number + '</td>'
+                            + '<td>' + data[i].name + '</td>'
+                            + '<td>' + timestamp4 + '</td>'
+                            + '<td>' + data[i].temperature + '</td>'
+                            + "<td> <img src='http://122.112.159.211/api/img?photo=" + data[i].fileName + "' height='70' width='100' >" + '</td>';
+                        console.log(tr);
+                        $("#mytable").append('<tr>' + tr + '</tr>');
+
+                    }
+                    dividepage();
+                    // for(var i=0;i<data.length();i+=1)
+                }
+
+
+            });
+
+        })
+
+
+    </script>
+</body>
+
+</html>

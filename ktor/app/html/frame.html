@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>智能管理系统主页</title>
+    <link rel="stylesheet" href="../css/frame.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/login.css" /> -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/frame.js"></script>
+</head>
+
+<body>
+    <div id="flexlayout">
+        <div>
+            <h1 style="text-align: center;vertical-align: middle;color: aliceblue;
+            font-size: 30px;letter-spacing: 0.7em;height: 40px;">人脸录入</h1>
+        </div>
+
+        <div id="loginDiv">
+            <form method="POST" action='http://122.112.159.211:233' enctype="multipart/form-data">
+                <div class="wrap">
+                    <span>选择图片</span>
+                    <input type="file" name="file" id="file" class="file" accept=".jpg,.png,.bmp" onchange="fileChange(this);">
+                    <!-- <input id="fileupload" class="file" type="file" /> -->
+                </div>
+
+                <input type="button" value="上传图片" class="button" onclick="getvector()">
+                <!-- <input type="submit" value="提交"></button> -->
+            </form>
+
+
+            <form method="post" onsubmit="return false" action="http://122.112.159.211/faceId" id="faceId">
+                <p>学号:<input id="Number" type="text" name="number"></p>
+                <p>姓名:<input id="Name" type="text" name="name"></p>
+                <input type="text" id="AjaxData" name="vector" hidden>
+                <div style="text-align: center;margin-top: 30px;">
+                    <input type="button" class="button" value="提交" onclick="submitfaceId()">
+                    
+                </div>
+            </form>
+            <div style="text-align: center;margin-top: 30px;">
+                <input type="button" class="button_1" value="签到记录查询" onclick="jump()">
+                <input type="button" class="button_1" value="人脸录入查询" onclick="jump_1()">
+            </div>
+           
+        </div>
+
+
+    </div>
+
+</html>

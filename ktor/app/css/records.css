@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: url("../img/bg.jpg") no-repeat 0px 0px;
+    background-size: cover;
+}
+
+body,
+table {
+    font-size: 12px;
+}
+
+table {
+    table-layout: fixed;
+    empty-cells: show;
+    border-collapse: collapse;
+    margin: 0 auto;
+    opacity: 100%;
+}
+
+td,
+tr {
+    height: 30px;
+    color: rgb(239, 248, 248);
+    ;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background: #c62d1f;
+    background-image: -webkit-linear-gradient(top, #c62d1f, #f24437);
+    background-image: -moz-linear-gradient(top, #c62d1f, #f24437);
+    background-image: -ms-linear-gradient(top, #c62d1f, #f24437);
+    background-image: -o-linear-gradient(top, #c62d1f, #f24437);
+    background-image: linear-gradient(to bottom, #c62d1f, #f24437);
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    text-shadow: 0px 1px 0px #810e05;
+    -webkit-box-shadow: -3px 4px 10px -4px #8a2a21;
+    -moz-box-shadow: -3px 4px 10px -4px #8a2a21;
+    box-shadow: -3px 4px 10px -4px #8a2a21;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 12px 30px 12px 30px;
+    border: solid #d02718 1px;
+    text-decoration: none;
+}
+
+button:hover {
+
+    color: #ffffff;
+    background: #f24437;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.table {
+    border: 1px solid #cad9ea;
+    color: #666;
+}
+
+.table th {
+    background-repeat: repeat-x;
+    height: 30px;
+}
+
+.table td,
+.table th {
+    border: 1px solid #cad9ea;
+    padding: 0 1em 0;
+    text-align: center;
+    width: auto;
+    vertical-align: middle;
+}
+
+
+
+.table tr.alter {
+    background-color: #fcfcfc;
+}
+
+.button {
+    border-color: cornsilk;
+    background-color: rgba(178, 201, 245, 0.7);
+    color: aliceblue;
+    border-style: hidden;
+    border-radius: 5px;
+    width: 100px;
+    height: 21px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+a {
+    font-size: 18px;
+}
+.button_1{
+    border-color: cornsilk;
+    background-color: rgba(81, 144, 238, 0.884);
+    color: aliceblue;
+    border-style: hidden;
+    border-radius: 5px;
+    width: 140px;
+    height: 41px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 4px 12px;
+    text-indent: 0;
+    line-height: 20px;
+}

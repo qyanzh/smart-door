@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+
+  mariadb:
+    image: ktor-db
+    container_name: cdb
+    restart: always
+    volumes:
+      - /var/lib/mysql/:/var/lib/mysql/
+    build:
+      context: ./mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--character-set-client-handshake=0",
+        "--collation-server=utf8mb4_unicode_ci",
+        "--default-time-zone=+8:00",
+      ]
+
+  tomcat:
+    image: ktor-tomcat
+    container_name: ctc
+    build:
+      context: ./tomcat
+    volumes:
+      - ./photos:/photos
+      - ./tomcat:/usr/local/tomcat/webapps
+    depends_on:
+      - mariadb
+    restart: always
+
+  nginx:
+    image: nginx
+    container_name: cngx
+    environment:
+        TZ : 'Asia/Shanghai'
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app:/home/qyanzh/app
+    depends_on:
+      - tomcat
